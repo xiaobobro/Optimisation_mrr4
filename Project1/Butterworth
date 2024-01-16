@@ -1,0 +1,23 @@
+N = 2;
+wc = 100;
+[B, A] = butter(N, wc, 's');  A low-pass Butterworth analog filter is designed by substituting N and wn with %
+x = B;
+y = A;  %x,y are the coefficients of the numerator and denominator polynomial
+w = 0:0:01:300 0; % frequency range
+H = freqs(x, y, w);  % Calculates the frequency response
+magH = abs(H);  % amplitude-frequency characteristics
+phaH = angle(H);  % Phase frequency characteristics
+subplot(2, 1, 1);
+plot(w / pi, magH);  Plot amplitude-frequency characteristic curve
+grid on;
+xlabel(' Frequency (Hz)'); % x coordinate
+ylabel('magH');  % ordinate
+title(' amplitude-frequency characteristic curve '); % Titles
+subplot(2, 1, 2);
+plot(w / pi, phaH);  Plot the phase frequency characteristic curve
+xlabel(' Frequency (Hz)'); % x coordinate
+ylabel('phaH');  % ordinate
+title(' phase frequency characteristic curve '); % Titles
+grid on;
+a=1
+disp(a)
